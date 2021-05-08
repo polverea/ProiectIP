@@ -13,7 +13,14 @@
     <script src="form.js"></script>
 </head>
 <body>
+    <br/> <br/>
+    <div id="login-header">
     <h1 style="text-align: center;"> Welcome to SmartMed</h1>
+    </div>
+    <div id="loggedin-header">
+    <h1 id="user_para" style="text-align: center;"> </h1> 
+    </div>
+    <img src="logo.png" alt="SmartMed logo" width="250" height="250" class="center">
 
 <div id="login_div" class="main-div">
     <h3>LOGIN</h3>
@@ -28,7 +35,10 @@
 
 <div id="user_div" class="loggedin-div">
     <h3>Welcome to control panel!</h3>
-    <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+    <p id="user_para"></p>
+    <button>Adaugare pacient </button>
+    <button>Modificare, stergere, vizualizare pacient </button>
+    <button>Adaugare alerta</button>
     <button onclick="logout()">Logout</button>
 </div>
     <script src="login.js"></script>
