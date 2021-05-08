@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title> SmartMed Login </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+    <script src="form.js"></script>
+</head>
+<body>
+    <h1 style="text-align: center;"> Welcome to SmartMed</h1>
+
+<div id="login_div" class="main-div">
+    <h3>LOGIN</h3>
+    <label for="username"> USERNAME </label>
+    <input type="text" name="username" placeholder="ENTER USERNAME..." id="email_field">
+
+    <label for="password"> PASSWORD </label>
+    <input type="password" name="password" placeholder="ENTER PASSWORD..." id="password_field">
+
+    <button onclick="login()"> Login </button>
+</div>
+
+<div id="user_div" class="loggedin-div">
+    <h3>Welcome User</h3>
+    <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+    <button onclick="logout()">Logout</button>
+</div>
+    <script src="login.js"></script>
+
+</body>
+</html>
