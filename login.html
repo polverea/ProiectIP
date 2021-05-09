@@ -14,12 +14,14 @@
 </head>
 <body>
     <br/> <br/>
+
     <div id="login-header">
-    <h1 style="text-align: center;"> Welcome to SmartMed</h1>
+        <h1 style="text-align: center;"> Welcome to SmartMed</h1>
     </div>
     <div id="loggedin-header">
-    <h1 id="user_para" style="text-align: center;"> </h1> 
+        <h1 id="user_doctor" style="text-align: center;"> </h1> 
     </div>
+
     <img src="logo.png" alt="SmartMed logo" width="250" height="250" class="center">
 
 <div id="login_div" class="main-div">
@@ -33,15 +35,66 @@
     <button onclick="login()"> Login </button>
 </div>
 
-<div id="user_div" class="loggedin-div">
-    <h3>Welcome to control panel!</h3>
-    <p id="user_para"></p>
-    <button>Adaugare pacient </button>
+<div id="user_doctor_div" class="loggedin-div">
+    <h3 style="text-align: center;">Welcome to control panel!</h3>
+    <p id="user_doctor"></p>
+    <button onclick="add_patient()">Adaugare pacient</button>
     <button>Modificare, stergere, vizualizare pacient </button>
     <button>Adaugare alerta</button>
     <button onclick="logout()">Logout</button>
 </div>
-    <script src="login.js"></script>
+
+<div id="user_patient_div" class="loggedin-div">
+    <h3 style="text-align: center;">Welcome to control panel!</h3>
+    <p id="user_patient"></p>
+    <button>Vizualizare fișă</button>
+    <button>Recomandările medicului</button>
+    <button>Vizualizare valori</button>
+    <button onclick="logout()">Logout</button>
+</div>
+
+<div id="doctor_add">
+    <div id="doctor_patient_div" class="main-div">
+        <h3>Adăugare pacient</h3>
+        <label for="username_patient"> USERNAME </label>
+        <input type="text" name="username_patient" placeholder="INTRODUCETI USERNAME..." id="username_patient_field">
+    
+        <label for="password_patient"> PAROLA </label>
+        <input type="password" name="password_patient" placeholder="INTRODUCETI PAROLA..." id="password_patient_field">
+        
+        <label for="name_patient"> NUME </label>
+        <input type="text" name="uname_patient" placeholder="INTRODUCETI NUMELE..." id="name_patient_field">
+
+        <label for="surname_patient"> PRENUME </label>
+        <input type="text" name="surname_patient" placeholder="INTRODUCETI PRENUMELE..." id="surname_patient_field">
+
+        <label for="cnp_patient"> CNP </label>
+        <input type="text" name="cnp_patient" placeholder="INTRODUCETI CNP-UL..." id="cnp_patient_field">
+
+        <label for="adress_patient">ADRESA:</label>
+
+        <textarea id="adress_patient" name="adress_patient" rows="4" cols="50">
+INTRODUCETI ADRESA...
+        </textarea>
+
+        <label for="phone_number_patient"> NUMĂR TELEFON </label>
+        <input type="text" name="phone_number_patient" placeholder="INTRODUCETI NUMĂRUL TELEFON..." id="phone_number_field">
+
+        <label for="profession_patient"> PROFESIE </label>
+        <input type="text" name="profession_patient" placeholder="INTRODUCETI PROFESIA..." id="profession__field">
+
+        <label for="job_patient"> LOC DE MUNCĂ </label>
+        <input type="text" name="job_patient" placeholder="INTRODUCETI LOCUL DE MUNCĂ..." id="job__field">
+
+    </div>
+    <div id="outer">
+        <button class="inner"> Adăugare </button>
+        <button class="inner" onclick="cancel_add()"> Anulare </button>
+    </div>
+
+</div>
+
+<script src="login.js"></script>
 
 </body>
 </html>
