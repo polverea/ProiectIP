@@ -7,6 +7,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
@@ -35,7 +36,17 @@
     <label for="password"> PASSWORD </label>
     <input type="password" name="password" placeholder="ENTER PASSWORD..." id="password_field">
 
-    <button onclick="login()"> Login </button>
+    <button id="myBtn" onclick="login()"> Login </button>
+
+    <script>
+        var input = document.getElementById("password_field");
+        input.addEventListener("keyup", function(event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+                document.getElementById("myBtn").click();
+            }
+        });
+    </script>
 </div>
 
 <div id="user_doctor_div" class="loggedin-div">
@@ -59,7 +70,7 @@
 
 <div id="doctor_add">
     <div id="doctor_patient_div" class="main-div">
-        <h3>Adăugare pacient</h3>
+        <h3>Adăugare date demografice</h3>
         <label for="username_patient"> USERNAME </label>
         <input type="text" name="username_patient" placeholder="INTRODUCETI USERNAME..." id="username_patient_field">
     
@@ -76,29 +87,41 @@
         <input type="text" name="cnp_patient" placeholder="INTRODUCETI CNP-UL..." id="cnp_patient_field">
 
         <label for="adress_patient">ADRESA:</label>
-
-        <textarea id="adress_patient" name="adress_patient" rows="4" cols="50">
-        INTRODUCETI ADRESA...
-        </textarea>
+    
+        <textarea id="adress_patient" name="adress_patient" rows="4" cols="50"> INTRODUCETI ADRESA... </textarea>
 
         <label for="phone_number_patient"> NUMĂR TELEFON </label>
         <input type="text" name="phone_number_patient" placeholder="INTRODUCETI NUMĂRUL TELEFON..." id="phone_number_field">
 
         <label for="profession_patient"> PROFESIE </label>
-        <input type="text" name="profession_patient" placeholder="INTRODUCETI PROFESIA..." id="profession__field">
+        <input type="text" name="profession_patient" placeholder="INTRODUCETI PROFESIA..." id="profession_field">
 
         <label for="job_patient"> LOC DE MUNCĂ </label>
-        <input type="text" name="job_patient" placeholder="INTRODUCETI LOCUL DE MUNCĂ..." id="job__field">
+        <input type="text" name="job_patient" placeholder="INTRODUCETI LOCUL DE MUNCĂ..." id="job_field">
+
+        <h3>Adăugare date medicale</h3>
+
+        <label for="medical_history_patient"> ISTORIC MEDICAL </label>
+        <input type="text" name="medical_history_patient" placeholder="INTRODUCETI ISTORICUL MEDICAL..." id="medical_history_field">
+
+        <label for="allergies_patient"> ALERGII </label>
+        <input type="text" name="allergies_patient" placeholder="INTRODUCETI ALERGIILE..." id="allergies_field">
+
+        <label for="cardio_patient"> CONSULTAȚII CARDIOLOGICE </label>
+        <input type="text" name="cardio_patient" placeholder="INTRODUCETI CONSULTAȚIILE..." id="cardio_field">
 
     </div>
     <div id="outer">
-        <button class="inner"> Adăugare </button>
-        <button class="inner" onclick="cancel_add()"> Anulare </button>
+        <button style="display: inline-block; width: 182px;" class="inner" id="add_button"> Adăugare </button>
+        <button style="display: inline-block; width: 182px" class="inner" onclick="cancel_add()"> Anulare </button>
+    </div>
+
+    <div >
     </div>
 
 </div>
 
 <script src="login.js"></script>
-
+<script src="add.js"></script>
 </body>
 </html>

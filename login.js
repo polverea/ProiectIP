@@ -62,11 +62,35 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementById("doctor_add").style.display = "block";
     document.getElementById("menu-span").style.display = "block";
   }
+
   function cancel_add(){
     document.getElementById("user_doctor_div").style.display = "block";
     document.getElementById("doctor_add").style.display = "none";
     document.getElementById("menu-span").style.display = "none";
   }
+
+  function add()
+  {
+    firebase.initializeApp(config);
+    var firestore = firebase.firestore();
+    
+    const docRef=firestore.doc("pacienti/");
+    const username=document.querySelector("#username_patient");
+    const add=document.querySelector("#add_button");
+    
+    add.addEventListener("click",function()
+    {
+        const text=username.value;
+        docRef.set({
+           username_patient: text
+        }).then(function(){
+            console.log("Saved");
+        }).catch(function (error){
+            console.log("error ", error);
+        });
+    })
+  }
+
   function logout(){
     firebase.auth().signOut();
   }

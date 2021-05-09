@@ -60,7 +60,7 @@ textarea {
     transition : 0.3s;
 
 }
-.main-div button, .loggedin-div button{
+.main-div button, .loggedin-div button, .inner{
     background: lightseagreen;
     color:#fff;
     padding: 10px;
@@ -94,17 +94,4 @@ textarea {
 {
     width:100%;
     text-align: center;
-}
-.inner
-{
-    background: lightseagreen;
-    color:#fff;
-    padding: 10px;
-    display: inline-block;
-    outline: none;
-    width: 10%;
-    border-radius: 10px;
-    border: 1px solid lightseagreen;
-    margin-bottom: 20px;
-    transition : 0.3s;
 }
