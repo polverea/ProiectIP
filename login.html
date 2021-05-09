@@ -14,15 +14,18 @@
 </head>
 <body>
     <br/> <br/>
-
     <div id="login-header">
         <h1 style="text-align: center;"> Welcome to SmartMed</h1>
     </div>
     <div id="loggedin-header">
         <h1 id="user_doctor" style="text-align: center;"> </h1> 
     </div>
-
+    <span id="menu-span"><button onclick="add_patient()">Adaugare pacient</button>
+        <button>Modificare, stergere, vizualizare pacient </button>
+        <button>Adaugare alerta</button>
+        <button onclick="logout()">Logout</button> </span>
     <img src="logo.png" alt="SmartMed logo" width="250" height="250" class="center">
+   
 
 <div id="login_div" class="main-div">
     <h3>LOGIN</h3>
@@ -43,6 +46,7 @@
     <button>Adaugare alerta</button>
     <button onclick="logout()">Logout</button>
 </div>
+
 
 <div id="user_patient_div" class="loggedin-div">
     <h3 style="text-align: center;">Welcome to control panel!</h3>
@@ -74,7 +78,7 @@
         <label for="adress_patient">ADRESA:</label>
 
         <textarea id="adress_patient" name="adress_patient" rows="4" cols="50">
-INTRODUCETI ADRESA...
+        INTRODUCETI ADRESA...
         </textarea>
 
         <label for="phone_number_patient"> NUMĂR TELEFON </label>

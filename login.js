@@ -1,13 +1,12 @@
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-      
       document.getElementById("login_div").style.display = "none";
   
       document.getElementById("loggedin-header").style.display = "block";
       document.getElementById("login-header").style.display = "none";
       document.getElementById("doctor_add").style.display = "none";
-      
+      document.getElementById("menu-span").style.display = "none";      
 
       var user = firebase.auth().currentUser;
   
@@ -18,12 +17,13 @@ firebase.auth().onAuthStateChanged(function(user) {
         if(email_id=="polverea1998@yahoo.com"){
           document.getElementById("user_patient_div").style.display = "block";
           document.getElementById("user_doctor_div").style.display = "none";
+          document.getElementById("menu-span").style.display = "none";
         }
         if(email_id=="ionutpuiu@yahoo.com"){
           document.getElementById("user_patient_div").style.display = "none";
           document.getElementById("user_doctor_div").style.display = "block";
+          document.getElementById("menu-span").style.display = "none";
         }
-        
       }
   
     } else {
@@ -35,6 +35,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       document.getElementById("user_patient_div").style.display = "none";
       document.getElementById("user_doctor_div").style.display = "none";
       document.getElementById("doctor_add").style.display = "none";
+      document.getElementById("menu-span").style.display = "none";
   
     }
   });
@@ -59,11 +60,12 @@ firebase.auth().onAuthStateChanged(function(user) {
   function add_patient(){
     document.getElementById("user_doctor_div").style.display = "none";
     document.getElementById("doctor_add").style.display = "block";
+    document.getElementById("menu-span").style.display = "block";
   }
-
   function cancel_add(){
     document.getElementById("user_doctor_div").style.display = "block";
     document.getElementById("doctor_add").style.display = "none";
+    document.getElementById("menu-span").style.display = "none";
   }
   function logout(){
     firebase.auth().signOut();

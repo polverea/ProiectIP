@@ -43,7 +43,23 @@ textarea {
     height: 20%;
     margin-bottom: 20px;
 }
+#menu-span{
+  width: 70%;
+  position: relative;
+   margin-left:410px;
+}
+#menu-span button{
+    background: lightseagreen;
+    color:#fff;
+    padding: 10px;
+    outline: none;
+    width: 20%;
+    border-radius: 10px;
+    border: 1px solid lightseagreen;
+    margin-bottom: 20px;
+    transition : 0.3s;
 
+}
 .main-div button, .loggedin-div button{
     background: lightseagreen;
     color:#fff;
@@ -58,7 +74,7 @@ textarea {
   
 }
 
-.main-div button:hover,  .loggedin-div button:hover, .inner:hover{
+.main-div button:hover,  .loggedin-div button:hover, .inner:hover, #menu-span button:hover{
     background: #c5aee5;
     color: black;
     border: 1px solid #781d7b;
