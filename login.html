@@ -21,8 +21,9 @@
     <div id="loggedin-header">
         <h1 id="user_doctor" style="text-align: center;"> </h1> 
     </div>
+   
     <span id="menu-span"><button onclick="add_patient()">Adaugare pacient</button>
-        <button>Modificare, stergere, vizualizare pacient </button>
+        <button onclick="view_patient()">Modificare, stergere, vizualizare pacient </button>
         <button>Adaugare alerta</button>
         <button onclick="logout()">Logout</button> </span>
     <img src="logo.png" alt="SmartMed logo" width="250" height="250" class="center">
@@ -53,7 +54,7 @@
     <h3 style="text-align: center;">Welcome to control panel!</h3>
     <p id="user_doctor"></p>
     <button onclick="add_patient()">Adaugare pacient</button>
-    <button>Modificare, stergere, vizualizare pacient </button>
+    <button onclick="view_patient()">Modificare, stergere, vizualizare pacient </button>
     <button>Adaugare alerta</button>
     <button onclick="logout()">Logout</button>
 </div>
@@ -115,9 +116,17 @@
         <button style="display: inline-block; width: 182px;" class="inner" id="add_button"> Adăugare </button>
         <button style="display: inline-block; width: 182px" class="inner" onclick="cancel_add()"> Anulare </button>
     </div>
+</div>
 
-    <div >
-    </div>
+<div id="info_pacient">
+
+    <table id="myTable">
+        <tr>
+            <th>Nume</th>
+            <th>Prenume</th>
+            <th>CNP</th>
+        </tr>
+    </table>
 
 </div>
 
