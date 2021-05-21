@@ -1,4 +1,3 @@
-
 const username=document.getElementById("username_patient_field");
 const parola=document.getElementById("password_patient_field");
 const nume=document.getElementById("name_patient_field");
@@ -16,23 +15,52 @@ const addButton=document.getElementById("add_button");
 const database=firebase.firestore();
 const pacientiCollection = database.collection("pacienti");
 
-
-
 addButton.addEventListener("click",e => {
     e.preventDefault();
     pacientiCollection.doc(username.value).set(
         {
-            name_patient_field: nume.value,
-            surname_patient_field: prenume.value,
-            cnp_patient_field: CNP.value,
-            adress_patient:adresa.value,
-            phone_number_field: telefon.value,
-            job_field:job.value,
-            medical_history_field:istoric.value,
-            allergies_field:alergii.value,
-            cardio_field:cardio.value
+            nume: nume.value,
+            prenume: prenume.value,
+            CNP: CNP.value,
+            adresa: adresa.value,
+            numar_telefon: telefon.value,
+            job: job.value,
+            istoric_medical: istoric.value,
+            alergii: alergii.value,
+            cons_cardiologice: cardio.value,
+            tip_utilizator: "pacient"
 
         }).then(()=> {console.log("succes!");
-        }).catch(error => {console.error(error)});
+    }).catch(error => {console.error(error)});
 
 });
+
+function cancel_add(){
+    document.getElementById("user_doctor_div").style.display = "block";
+    document.getElementById("doctor_add").style.display = "none";
+    document.getElementById("menu-span").style.display = "none";
+    document.getElementById("info_pacient").style.display = "none";   
+}
+
+function add()
+{
+
+firebase.initializeApp(config);
+var firestore = firebase.firestore();
+
+const docRef=firestore.doc("pacienti/");
+const username=document.querySelector("#username_patient");
+const add=document.querySelector("#add_button");
+
+add.addEventListener("click",function()
+{
+    const text=username.value;
+    docRef.set({
+        username_patient: text
+    }).then(function(){
+        console.log("Saved");
+    }).catch(function (error){
+        console.log("error ", error);
+    });
+})
+}

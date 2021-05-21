@@ -60,7 +60,7 @@ textarea {
     transition : 0.3s;
 
 }
-.main-div button, .loggedin-div button, .inner{
+.main-div button, .loggedin-div button, .inner, #myTable button{
     background: lightseagreen;
     color:#fff;
     padding: 10px;
@@ -74,7 +74,7 @@ textarea {
   
 }
 
-.main-div button:hover,  .loggedin-div button:hover, .inner:hover, #menu-span button:hover{
+.main-div button:hover,  .loggedin-div button:hover, .inner:hover, #menu-span button:hover, #myTable button:hover{
     background: #c5aee5;
     color: black;
     border: 1px solid #781d7b;
@@ -88,6 +88,15 @@ textarea {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+#myTable{
+    padding: 0;
+    margin: auto;
+    border-collapse: collapse;
+    width: 60%;
+    text-align: center;
+    color: black;
+    border: 1px solid black;
 }
 
 #outer
