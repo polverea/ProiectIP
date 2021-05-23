@@ -13,6 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
     <script src="form.js"></script>
     <script src="view_details.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
     <br/> <br/>
@@ -24,7 +25,7 @@
     </div>
    
     <span id="menu-span"><button onclick="add_patient()">Adaugare pacient</button>
-        <button onclick="view_patient()">Modificare, stergere, vizualizare pacient </button>
+        <button onclick="view_patient()" id="modify_btn">Modificare, stergere, vizualizare pacient </button>
         <button>Adaugare alerta</button>
         <button onclick="logout()">Logout</button> </span>
     <img src="logo.png" alt="SmartMed logo" width="250" height="250" class="center">
@@ -131,8 +132,12 @@
             <th></th>
         </tr>
     </table>
+    <div id="details_pacient">
 
+
+    </div>
 </div>
+
 
 <script src="login.js"></script>
 <script src="add.js"></script>

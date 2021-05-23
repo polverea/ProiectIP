@@ -30,9 +30,22 @@ addButton.addEventListener("click",e => {
             cons_cardiologice: cardio.value,
             tip_utilizator: "pacient"
 
-        }).then(()=> {console.log("succes!");
-    }).catch(error => {console.error(error)});
-
+        }).then(()=> {
+            document.getElementById("username_patient_field").value="";
+            document.getElementById("password_patient_field").value="";
+            document.getElementById("name_patient_field").value="";
+            document.getElementById("surname_patient_field").value="";
+            document.getElementById("cnp_patient_field").value="";
+            document.getElementById("adress_patient").value="INTRODUCETI ADRESA...";
+            document.getElementById("phone_number_field").value="";
+            document.getElementById("job_field").value="";
+            document.getElementById("medical_history_field").value="";
+            document.getElementById("allergies_field").value="";
+            document.getElementById("cardio_field").value="";
+            console.log("succes!");
+        }).catch(error => {
+            console.error(error)
+        });
 });
 
 function cancel_add(){
