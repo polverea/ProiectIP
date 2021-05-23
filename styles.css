@@ -29,7 +29,7 @@ input, button{
     margin-bottom: 20px;
 }
 
-textarea {
+#doctor_add textarea {
     resize: none;
     font-family:'Nunito', sans-serif;  
     font-size: 16px;
@@ -43,6 +43,24 @@ textarea {
     height: 20%;
     margin-bottom: 20px;
 }
+
+#details_pacient textarea, #modify_pacient textarea{
+    resize: none;
+    font-family:'Nunito', sans-serif;  
+    font-size: 16px;
+    border: 1px solid #999;
+    display: block;
+    border-radius: 10px;
+    background-color: #fff;
+    padding:10px;
+    width: 30%;
+    height: 7%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+
 #menu-span{
   width: 70%;
   position: relative;
@@ -60,7 +78,7 @@ textarea {
     transition : 0.3s;
 
 }
-.main-div button, .loggedin-div button, .inner, #myTable button{
+.main-div button, .loggedin-div button, .inner, #myTable button, #details_pacient button{
     background: lightseagreen;
     color:#fff;
     padding: 10px;
@@ -74,7 +92,7 @@ textarea {
   
 }
 
-.main-div button:hover,  .loggedin-div button:hover, .inner:hover, #menu-span button:hover, #myTable button:hover{
+.main-div button:hover,  .loggedin-div button:hover, .inner:hover, #menu-span button:hover, #myTable button:hover, #details_pacient button:hover{
     background: #c5aee5;
     color: black;
     border: 1px solid #781d7b;
@@ -83,6 +101,7 @@ textarea {
 .main-div input:focus{
     border: 2px solid gray;
 }
+
 
 .center {
     display: block;
@@ -99,6 +118,14 @@ textarea {
     border: 1px solid black;
 }
 
+#details_pacient, #modify_pacient{
+    padding: 0;
+    margin: auto;
+    border-collapse: collapse;
+    width: 60%;
+    text-align: center;
+
+}
 #outer
 {
     width:100%;

@@ -1,10 +1,11 @@
 const username=document.getElementById("username_patient_field");
 const parola=document.getElementById("password_patient_field");
-const nume=document.getElementById("name_patient_field");
+const nume2=document.getElementById("name_patient_field");
 const prenume=document.getElementById("surname_patient_field");
 const CNP=document.getElementById("cnp_patient_field");
 const adresa=document.getElementById("adress_patient");
 const telefon=document.getElementById("phone_number_field");
+const profesie=document.getElementById("profession_field")
 const job=document.getElementById("job_field");
 const istoric=document.getElementById("medical_history_field");
 const alergii=document.getElementById("allergies_field");
@@ -24,6 +25,7 @@ addButton.addEventListener("click",e => {
             CNP: CNP.value,
             adresa: adresa.value,
             numar_telefon: telefon.value,
+            profesie: profesie.value,
             job: job.value,
             istoric_medical: istoric.value,
             alergii: alergii.value,
@@ -38,6 +40,7 @@ addButton.addEventListener("click",e => {
             document.getElementById("cnp_patient_field").value="";
             document.getElementById("adress_patient").value="INTRODUCETI ADRESA...";
             document.getElementById("phone_number_field").value="";
+            document.getElementById("profession_field").value="";
             document.getElementById("job_field").value="";
             document.getElementById("medical_history_field").value="";
             document.getElementById("allergies_field").value="";

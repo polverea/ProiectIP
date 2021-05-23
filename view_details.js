@@ -9,8 +9,10 @@ function populate_table(){
 function view_patient(){
   document.getElementById("user_doctor_div").style.display = "none";
   document.getElementById("doctor_add").style.display = "none";
+  document.getElementById("details_pacient").style.display = "none";
   document.getElementById("menu-span").style.display = "block";
   document.getElementById("info_pacient").style.display = "block";
+
   var table = document.getElementById("myTable");
   usersCollection.get()
   .then(snapshot =>{
@@ -40,9 +42,7 @@ function view_patient(){
         var viewDetails_btn=document.createElement("button");
         viewDetails_btn.id="btn_details";
         viewDetails_btn.innerHTML='<img src="images/details.png" alt="details" width="25" height="25" class="center">';
-        viewDetails_btn.onclick = function() {
-          console.log(user.id);
-        };
+      
 
         var modify_btn=document.createElement("button");
         modify_btn.id="btn_modify";
@@ -75,18 +75,77 @@ function view_patient(){
           document.getElementById("myTable").style.display = "none";
           document.getElementById("details_pacient").style.display = "block";
           
-          usersCollection.get()
-          .then(snapshot=> {
-            snapshot.forEach(user =>{
+            usersCollection.doc(user.id).get()
+            .then(user => {
               console.log(user.id, ' => ', user.data());
-            });
-          })
+              document.getElementById("username_patient").value = user.id;
+              document.getElementById("name_patient").value = user.data().nume;
+              document.getElementById("surname_patient").value = user.data().prenume;
+              document.getElementById("cnp_patient").value = user.data().CNP;
+              document.getElementById("adress_patient").value = user.data().adresa;
+              document.getElementById("phone_number_patient").value = user.data().numar_telefon;
+              document.getElementById("job_patient").value = user.data().job;
+              document.getElementById("profession_patient").value = user.data().profesie;
+              document.getElementById("medical_history_patient").value = user.data().istoric_medical;
+              document.getElementById("allergies_patient").value = user.data().alergii;
+              document.getElementById("cardio_patient").value = user.data().cons_cardiologice;
+            })
             .catch(error =>{
               console.error(error);
             });
-          }
-          
-        //}
+        }
+
+        modify_btn.onclick=function(){
+          document.getElementById("myTable").style.display = "none";
+          document.getElementById("details_pacient").style.display = "block";
+            usersCollection.doc(user.id).get()
+            .then(user => {
+              console.log(user.id, ' => ', user.data());
+              document.getElementById("username_patient").value = user.id;
+              document.getElementById("username_patient").removeAttribute('readonly');
+              
+              document.getElementById("name_patient").value = user.data().nume;
+              document.getElementById("name_patient").removeAttribute('readonly');
+              
+              document.getElementById("surname_patient").value = user.data().prenume;
+              document.getElementById("surname_patient").removeAttribute('readonly');
+
+              document.getElementById("cnp_patient").value = user.data().CNP;
+              document.getElementById("cnp_patient").removeAttribute('readonly');
+
+              document.getElementById("adress_patient").value = user.data().adresa;
+              document.getElementById("adress_patient").removeAttribute('readonly');
+
+              document.getElementById("phone_number_patient").value = user.data().numar_telefon;
+              document.getElementById("phone_number_patient").removeAttribute('readonly');
+
+              document.getElementById("job_patient").value = user.data().job;
+              document.getElementById("job_patient").removeAttribute('readonly');
+
+              document.getElementById("profession_patient").value = user.data().profesie;
+              document.getElementById("profession_patient").removeAttribute('readonly');
+
+              document.getElementById("medical_history_patient").value = user.data().istoric_medical;
+              document.getElementById("medical_history_patient").removeAttribute('readonly');
+
+              document.getElementById("allergies_patient").value = user.data().alergii;
+              document.getElementById("allergies_patient").removeAttribute('readonly');
+
+              document.getElementById("cardio_patient").value = user.data().cons_cardiologice;
+              document.getElementById("cardio_patient").removeAttribute('readonly');
+
+              var update_btn = document.createElement("button");
+              update_btn.innerHTML = "UPDATE DATABASE";
+              document.body.appendChild(update_btn);
+              update_btn.innerHTML='<img src="images/delete.png" alt="delete" width="25" height="25" class="center">';
+
+
+            })
+            .catch(error =>{
+              console.error(error);
+            });
+        }
+
     });
   })
 
