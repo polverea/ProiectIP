@@ -79,5 +79,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
   
   function logout(){
+    user_type="none";
     firebase.auth().signOut();
   }

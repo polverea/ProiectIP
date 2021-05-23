@@ -12,7 +12,7 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
     <script src="form.js"></script>
-    <script src="view_details.js"></script>
+    <script src="details.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
@@ -121,17 +121,19 @@
 </div>
 
 <div id="info_pacient">
-    <table id="myTable">
-        <tr>
-            <th></th>
-            <th>Nume</th>
-            <th>Prenume</th>
-            <th>CNP</th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
-    </table>
+    <div id="table_pacient">
+        <table id="myTable">
+            <tr>
+                <th></th>
+                <th>Nume</th>
+                <th>Prenume</th>
+                <th>CNP</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </table>
+    </div>
     <div id="details_pacient">
         <label for="username_patient"> USERNAME </label>
         <textarea id="username_patient" readonly> </textarea>
@@ -165,6 +167,7 @@
         
         <label for="cardio_patient"> CONSULTAȚII CARDIOLOGICE </label>
         <textarea id="cardio_patient" readonly> </textarea>
+        <br/>
     </div>
 </div>
 

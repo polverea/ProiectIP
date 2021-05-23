@@ -78,7 +78,7 @@ input, button{
     transition : 0.3s;
 
 }
-.main-div button, .loggedin-div button, .inner, #myTable button, #details_pacient button{
+.main-div button, .loggedin-div button, .inner, #myTable button{
     background: lightseagreen;
     color:#fff;
     padding: 10px;
@@ -92,7 +92,22 @@ input, button{
   
 }
 
-.main-div button:hover,  .loggedin-div button:hover, .inner:hover, #menu-span button:hover, #myTable button:hover, #details_pacient button:hover{
+#btn_update{
+    background: lightseagreen;
+    color:#fff;
+    padding: 10px;
+    outline: none;
+    width: 15%;
+    border-radius: 10px;
+    border: 1px solid lightseagreen;
+    display: block;
+    margin-bottom: 20px;
+    transition : 0.3s;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.main-div button:hover,  .loggedin-div button:hover, .inner:hover, #menu-span button:hover, #myTable button:hover, #btn_update:hover{
     background: #c5aee5;
     color: black;
     border: 1px solid #781d7b;
@@ -103,7 +118,7 @@ input, button{
 }
 
 
-.center {
+.center, #table_pacient {
     display: block;
     margin-left: auto;
     margin-right: auto;

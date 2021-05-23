@@ -1,6 +1,6 @@
 const username=document.getElementById("username_patient_field");
 const parola=document.getElementById("password_patient_field");
-const nume2=document.getElementById("name_patient_field");
+const nume=document.getElementById("name_patient_field");
 const prenume=document.getElementById("surname_patient_field");
 const CNP=document.getElementById("cnp_patient_field");
 const adresa=document.getElementById("adress_patient");
