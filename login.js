@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       document.getElementById("login-header").style.display = "none";
       document.getElementById("doctor_add").style.display = "none";
       document.getElementById("menu-span").style.display = "none"; 
-      document.getElementById("info_pacient").style.display = "none";       
+      document.getElementById("info_pacient").style.display = "none";
 
       var user = firebase.auth().currentUser;
       if(user != null){
@@ -22,12 +22,14 @@ firebase.auth().onAuthStateChanged(function(user) {
           document.getElementById("user_doctor_div").style.display = "none";
           document.getElementById("menu-span").style.display = "none";
           document.getElementById("info_pacient").style.display = "none";   
+          
         }
         else{
           document.getElementById("user_patient_div").style.display = "none";
           document.getElementById("user_doctor_div").style.display = "block";
           document.getElementById("menu-span").style.display = "none";
           document.getElementById("info_pacient").style.display = "none";   
+          document.getElementById("alerts_div").style.display = "none";  
         }
       }
   
@@ -35,13 +37,14 @@ firebase.auth().onAuthStateChanged(function(user) {
       // No user is signed in.
       document.getElementById("loggedin-header").style.display = "none";
       document.getElementById("login-header").style.display = "block";
-
+      
       document.getElementById("login_div").style.display = "block";
       document.getElementById("user_patient_div").style.display = "none";
       document.getElementById("user_doctor_div").style.display = "none";
       document.getElementById("doctor_add").style.display = "none";
       document.getElementById("menu-span").style.display = "none";
-      document.getElementById("info_pacient").style.display = "none";   
+      document.getElementById("info_pacient").style.display = "none";
+      document.getElementById("alerts_div").style.display = "none";     
   
     }
   });
@@ -72,10 +75,15 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
   
   function add_patient(){
+    if(button==true){
+      button=false;
+      btn_update.remove();
+    }
     document.getElementById("user_doctor_div").style.display = "none";
     document.getElementById("doctor_add").style.display = "block";
     document.getElementById("menu-span").style.display = "block";
     document.getElementById("info_pacient").style.display = "none";   
+    document.getElementById("alerts_div").style.display = "none";   
   }
   
   function logout(){

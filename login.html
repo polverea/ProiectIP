@@ -13,6 +13,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
     <script src="form.js"></script>
     <script src="details.js"></script>
+    <script src="alerts.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
@@ -26,7 +27,7 @@
    
     <span id="menu-span"><button onclick="add_patient()">Adaugare pacient</button>
         <button onclick="view_patient()" id="modify_btn">Modificare, stergere, vizualizare pacient </button>
-        <button>Adaugare alerta</button>
+        <button onclick="add_alert()">Adaugare alerta</button>
         <button onclick="logout()">Logout</button> </span>
     <img src="logo.png" alt="SmartMed logo" width="250" height="250" class="center">
    
@@ -57,7 +58,7 @@
     <p id="user_doctor"></p>
     <button onclick="add_patient()">Adaugare pacient</button>
     <button onclick="view_patient()">Modificare, stergere, vizualizare pacient </button>
-    <button>Adaugare alerta</button>
+    <button onclick="add_alert()">Adaugare alerta</button>
     <button onclick="logout()">Logout</button>
 </div>
 
@@ -113,6 +114,33 @@
         <label for="cardio_patient"> CONSULTAȚII CARDIOLOGICE </label>
         <input type="text" name="cardio_patient" placeholder="INTRODUCETI CONSULTAȚIILE..." id="cardio_field">
 
+        <h3>Adăugare valori normale</h3>
+
+        <label for="puls_min_patient"> Puls </label>
+        <div id="outer">
+            <input style="display: inline-block; width: 49%;" type="text" name="puls_min_patient" placeholder="MIN" id="puls_min_field">
+            <input style="display: inline-block; width: 49%;" type="text" name="puls_max_patient" placeholder="MAX" id="puls_max_field">
+        </div>
+        
+        <label for="temp_min_patient"> Temperatura  </label>
+        <div id="outer">
+            <input style="display: inline-block; width: 49%;" type="text" name="temp_min_patient" placeholder="MIN" id="temp_min_field">
+            <input style="display: inline-block; width: 49%;" type="text" name="temp_max_patient" placeholder="MAX" id="temp_max_field">
+        </div>
+
+        <label for="ecg_min_patient"> ECG </label>
+        <div id="outer">
+            <input style="display: inline-block; width: 49%;" type="text" name="ecg_min_patient" placeholder="MIN" id="ecg_min_field">
+            <input style="display: inline-block; width: 49%;" type="text" name="ecg_max_patient" placeholder="MAX" id="ecg_max_field">
+        </div>
+        
+        <label for="umiditate_min_patient"> Umiditate </label>
+        <div id="outer">
+            <input style="display: inline-block; width: 49%;" type="text" name="umiditate_min_patient" placeholder="MIN" id="umiditate_min_field">
+            <input style="display: inline-block; width: 49%;" type="text" name="umiditate_max_patient" placeholder="MAX" id="umiditate_max_field">
+        </div>
+        
+
     </div>
     <div id="outer">
         <button style="display: inline-block; width: 182px;" class="inner" id="add_button"> Adăugare </button>
@@ -136,39 +164,75 @@
     </div>
     <div id="details_pacient">
         <label for="username_patient"> USERNAME </label>
-        <textarea id="username_patient" readonly> </textarea>
+        <textarea id="username_patient" > </textarea>
         
         <label for="name_patient"> NUME </label>
-        <textarea id="name_patient" readonly> </textarea>
+        <textarea id="name_patient" > </textarea>
         
         <label for="surname_patient"> PRENUME </label>
-        <textarea id="surname_patient"  readonly> </textarea>
+        <textarea id="surname_patient"  > </textarea>
         
         <label for="cnp_patient"> CNP </label>
-        <textarea id="cnp_patient" readonly> </textarea>
+        <textarea id="cnp_patient" > </textarea>
        
         <label for="patient"> ADRESA </label>
-        <textarea id="adress_patient" readonly> </textarea>
+        <textarea id="adress_patient"> </textarea>
         
         <label for="phone_number_patient"> NUMĂR TELEFON </label>
-        <textarea id="phone_number_patient" readonly> </textarea>
+        <textarea id="phone_number_patient" > </textarea>
         
         <label for="profession_patient"> PROFESIE </label>
-        <textarea id="profession_patient" readonly> </textarea>
+        <textarea id="profession_patient" > </textarea>
         
         <label for="job_patient"> LOC DE MUNCĂ </label>
-        <textarea id="job_patient" readonly> </textarea>
+        <textarea id="job_patient"> </textarea>
         
         <label for="medical_history_patient"> ISTORIC MEDICAL </label>
-        <textarea id="medical_history_patient" readonly> </textarea>
+        <textarea id="medical_history_patient" > </textarea>
        
         <label for="allergies_patient"> ALERGII </label>
-        <textarea id="allergies_patient" readonly> </textarea>
+        <textarea id="allergies_patient" > </textarea>
         
         <label for="cardio_patient"> CONSULTAȚII CARDIOLOGICE </label>
-        <textarea id="cardio_patient" readonly> </textarea>
+        <textarea id="cardio_patient" > </textarea>
+
+        <label for="puls_min_patient"> PULS </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="puls_min_patient" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="puls_max_patient" > </textarea>
+        </div>
+
+        <label for="temperatura_min_patient"> TEMPERATURA </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="temp_min_patient" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="temp_max_patient" > </textarea>
+        </div>
+
+        <label for="ecg_min_patient"> ECG </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="ecg_min_patient" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="ecg_max_patient" > </textarea>
+        </div>
+        
+        <label for="umiditate_min_patient"> UMIDITATE </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="umiditate_min_patient" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="umiditate_max_patient" > </textarea>
+        </div>
         <br/>
     </div>
+</div>
+
+<div id="alerts_div">
+    <select name="select_patient" id="patient_select" onchange="selected_patient()">   
+    </select>
+    <div id="alert_details_patient">
+        <label for="username_patient"> USERNAME </label>
+        <textarea id="username_patient" > </textarea>
+        
+        <label for="name_patient"> NUME </label>
+        <textarea id="name_patient" > </textarea>
+    </div>                            
 </div>
 
 

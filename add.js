@@ -11,6 +11,15 @@ const istoric=document.getElementById("medical_history_field");
 const alergii=document.getElementById("allergies_field");
 const cardio=document.getElementById("cardio_field");
 
+const pulsMin=document.getElementById("puls_min_field");
+const pulsMax=document.getElementById("puls_max_field");
+const tempMin=document.getElementById("temp_min_field");
+const tempMax=document.getElementById("temp_max_field");
+const ecgMin=document.getElementById("ecg_min_field");
+const ecgMax=document.getElementById("ecg_max_field");
+const umiditateMin=document.getElementById("umiditate_min_field");
+const umiditateMax=document.getElementById("umiditate_max_field");
+
 const addButton=document.getElementById("add_button");
 
 const database=firebase.firestore();
@@ -30,9 +39,19 @@ addButton.addEventListener("click",e => {
             istoric_medical: istoric.value,
             alergii: alergii.value,
             cons_cardiologice: cardio.value,
-            tip_utilizator: "pacient"
+            puls_minim: pulsMin.value,
+            puls_maxim: pulsMax.value,
+            temp_minim: tempMin.value,
+            temp_maxim: tempMax.value,
+            ecg_minim: ecgMin.value,
+            ecg_maxim: ecgMax.value,
+            umiditate_min: umiditateMin.value,
+            umiditate_max: umiditateMax.value
 
         }).then(()=> {
+            console.log(pulsMin.value);
+            console.log(tempMin.value);
+            console.log(umiditateMax.value);
             document.getElementById("username_patient_field").value="";
             document.getElementById("password_patient_field").value="";
             document.getElementById("name_patient_field").value="";
@@ -45,6 +64,15 @@ addButton.addEventListener("click",e => {
             document.getElementById("medical_history_field").value="";
             document.getElementById("allergies_field").value="";
             document.getElementById("cardio_field").value="";
+            document.getElementById("puls_min_field").value="";
+            document.getElementById("puls_min_field").value="";
+            document.getElementById("puls_max_field").value="";
+            document.getElementById("temp_min_field").value="";
+            document.getElementById("temp_max_field").value="";
+            document.getElementById("ecg_min_field").value="";
+            document.getElementById("ecg_max_field").value="";
+            document.getElementById("umiditate_min_field").value="";
+            document.getElementById("umiditate_max_field").value="";
             console.log("succes!");
         }).catch(error => {
             console.error(error)
@@ -56,27 +84,27 @@ function cancel_add(){
     document.getElementById("doctor_add").style.display = "none";
     document.getElementById("menu-span").style.display = "none";
     document.getElementById("info_pacient").style.display = "none";   
+    //document.getElementById("alerts_div").style.display = "none";
 }
 
 function add()
 {
+    firebase.initializeApp(config);
+    var firestore = firebase.firestore();
 
-firebase.initializeApp(config);
-var firestore = firebase.firestore();
+    const docRef=firestore.doc("pacienti/");
+    const username=document.querySelector("#username_patient");
+    const add=document.querySelector("#add_button");
 
-const docRef=firestore.doc("pacienti/");
-const username=document.querySelector("#username_patient");
-const add=document.querySelector("#add_button");
-
-add.addEventListener("click",function()
-{
-    const text=username.value;
-    docRef.set({
-        username_patient: text
-    }).then(function(){
-        console.log("Saved");
-    }).catch(function (error){
-        console.log("error ", error);
-    });
-})
+    add.addEventListener("click",function()
+    {
+        const text=username.value;
+        docRef.set({
+            username_patient: text
+        }).then(function(){
+            console.log("Saved");
+        }).catch(function (error){
+            console.log("error ", error);
+        });
+    })
 }
