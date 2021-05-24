@@ -27,7 +27,7 @@
    
     <span id="menu-span"><button onclick="add_patient()">Adaugare pacient</button>
         <button onclick="view_patient()" id="modify_btn">Modificare, stergere, vizualizare pacient </button>
-        <button onclick="add_alert()">Adaugare alerta</button>
+        <button onclick="show_alert_page()">Adaugare alerta</button>
         <button onclick="logout()">Logout</button> </span>
     <img src="logo.png" alt="SmartMed logo" width="250" height="250" class="center">
    
@@ -58,7 +58,7 @@
     <p id="user_doctor"></p>
     <button onclick="add_patient()">Adaugare pacient</button>
     <button onclick="view_patient()">Modificare, stergere, vizualizare pacient </button>
-    <button onclick="add_alert()">Adaugare alerta</button>
+    <button onclick="show_alert_page()">Adaugare alerta</button>
     <button onclick="logout()">Logout</button>
 </div>
 
@@ -224,15 +224,31 @@
 </div>
 
 <div id="alerts_div">
-    <select name="select_patient" id="patient_select" onchange="selected_patient()">   
+    <select name="select_patient" id="patient_select" onchange="show_patient_details()">   
     </select>
     <div id="alert_details_patient">
-        <label for="username_patient"> USERNAME </label>
-        <textarea id="username_patient" > </textarea>
+        <label for="name_patient_alerts"> NUME </label>
+        <textarea style="width: 10%;" id="name_patient_alerts" > </textarea>
         
-        <label for="name_patient"> NUME </label>
-        <textarea id="name_patient" > </textarea>
-    </div>                            
+        <label for="surname_patient_alerts"> PRENUME </label>
+        <textarea id="surname_patient_alerts" > </textarea>
+
+        <label for="add_alert_text"> ALERTA </label>
+        <textarea id="add_alert_text" > </textarea>
+        <br>
+        <button style="width: 10%;" id="add_alert_btn"> Adauga alerta </button>
+    </div> 
+    <br>
+    <div id="patient_table">
+        <table style="width: 45%;" id="table_parameters_patient">
+            <tr>
+                <th>Puls</th>
+                <th>Temperatura</th>
+                <th>Umiditate</th>
+                <th>ECG</th>
+            </tr>
+        </table>   
+    </div>                        
 </div>
 
 
