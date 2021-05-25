@@ -14,6 +14,7 @@
     <script src="form.js"></script>
     <script src="details.js"></script>
     <script src="alerts.js"></script>
+    <script src="sheet.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
@@ -25,10 +26,18 @@
         <h1 id="user_doctor" style="text-align: center;"> </h1> 
     </div>
    
-    <span id="menu-span"><button onclick="add_patient()">Adaugare pacient</button>
+    <span id="menu-span">
+        <button onclick="add_patient()">Adaugare pacient</button>
         <button onclick="view_patient()" id="modify_btn">Modificare, stergere, vizualizare pacient </button>
         <button onclick="show_alert_page()">Adaugare alerta</button>
         <button onclick="logout()">Logout</button> </span>
+
+        <span id="menu-span-patient">
+        <button onclick="view_sheet()">Vizualizare fisa</button>
+        <button onclick="recommandation()">Recomandările medicului </button>
+        <button onclick="view_values()">Vizualizare valori</button>
+        <button onclick="logout()">Logout</button> </span>
+
     <img src="logo.png" alt="SmartMed logo" width="250" height="250" class="center">
    
 
@@ -66,9 +75,9 @@
 <div id="user_patient_div" class="loggedin-div">
     <h3 style="text-align: center;">Welcome to control panel!</h3>
     <p id="user_patient"></p>
-    <button>Vizualizare fișă</button>
-    <button>Recomandările medicului</button>
-    <button>Vizualizare valori</button>
+    <button onclick="view_sheet()">Vizualizare fișă</button>
+    <button onclick="recommandation()">Recomandările medicului</button>
+    <button onclick="view_values()">Vizualizare valori</button>
     <button onclick="logout()">Logout</button>
 </div>
 
@@ -196,6 +205,8 @@
         <label for="cardio_patient"> CONSULTAȚII CARDIOLOGICE </label>
         <textarea id="cardio_patient" > </textarea>
 
+        <h3>Valori normale</h3>
+
         <label for="puls_min_patient"> PULS </label>
         <div id="outer">
             <textarea style="display: inline-block; width: 111px;" id="puls_min_patient" > </textarea>
@@ -228,10 +239,10 @@
     </select>
     <div id="alert_details_patient">
         <label for="name_patient_alerts"> NUME </label>
-        <textarea style="width: 30%;" id="name_patient_alerts" > </textarea>
+        <textarea style="width: 70%; height: 5%;" id="name_patient_alerts" > </textarea>
         
         <label for="surname_patient_alerts"> PRENUME </label>
-        <textarea style="width: 30%;" id="surname_patient_alerts" > </textarea>
+        <textarea style="width: 70%; height: 5%;" id="surname_patient_alerts" > </textarea>
 
         <label for="add_alert_text"> ALERTA </label>
         <textarea style="width: 70%; height:10%;" id="add_alert_text" > </textarea>
@@ -251,6 +262,112 @@
     </div>                        
 </div>
 
+<div id="patient_details_sheet">
+    
+        <label for="username_patient_sheet"> USERNAME </label>
+        <textarea id="username_patient_sheet" > </textarea>
+    
+        <label for="name_patient_sheet"> NUME </label>
+        <textarea id="name_patient_sheet" > </textarea>
+        
+        <label for="surname_patient_sheet"> PRENUME </label>
+        <textarea id="surname_patient_sheet"  > </textarea>
+        
+        <label for="cnp_patient_sheet"> CNP </label>
+        <textarea id="cnp_patient_sheet" > </textarea>
+       
+        <label for="patient_sheet"> ADRESA </label>
+        <textarea id="adress_patient_sheet"> </textarea>
+        
+        <label for="phone_number_patient_sheet"> NUMĂR TELEFON </label>
+        <textarea id="phone_number_patient_sheet" > </textarea>
+        
+        <label for="profession_patient_sheet"> PROFESIE </label>
+        <textarea id="profession_patient_sheet" > </textarea>
+        
+        <label for="job_patient_sheet"> LOC DE MUNCĂ </label>
+        <textarea id="job_patient_sheet"> </textarea>
+        
+        <label for="medical_history_patient_sheet"> ISTORIC MEDICAL </label>
+        <textarea id="medical_history_patient_sheet" > </textarea>
+       
+        <label for="allergies_patient_sheet"> ALERGII </label>
+        <textarea id="allergies_patient_sheet" > </textarea>
+        
+        <label for="cardio_patient_sheet"> CONSULTAȚII CARDIOLOGICE </label>
+        <textarea id="cardio_patient_sheet" > </textarea>
+        <br>
+        <h3>Recomandarile medicului</h3>
+        <br>
+        <label for="puls_min_patient_sheet"> PULS </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="puls_min_patient_sheet" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="puls_max_patient_sheet" > </textarea>
+        </div>
+
+        <label for="temperatura_min_patient_sheet"> TEMPERATURA </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="temp_min_patient_sheet" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="temp_max_patient_sheet" > </textarea>
+        </div>
+
+        <label for="ecg_min_patient_sheet"> ECG </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="ecg_min_patient_sheet" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="ecg_max_patient_sheet" > </textarea>
+        </div>
+        
+        <label for="umiditate_min_patient_sheet"> UMIDITATE </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="umiditate_min_patient_sheet" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="umiditate_max_patient_sheet" > </textarea>
+        </div>
+</div>
+
+<div id="recommandation">
+
+    <label for="profession_patient_rec"> AELERTELE MEDICULUI </label>
+    <textarea style="height: 30%;" id="profession_patient_rec" readonly > </textarea>
+    <br>
+    <h3>Recomandarile medicului</h3>
+    <br>
+    <label for="puls_min_patient_rec"> PULS </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="puls_min_patient_rec" readonly > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="puls_max_patient_rec" readonly  > </textarea>
+        </div>
+
+        <label for="temperatura_min_patient_rec"> TEMPERATURA </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="temp_min_patient_rec" readonly > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="temp_max_patient_rec" readonly > </textarea>
+        </div>
+
+        <label for="ecg_min_patient_rec"> ECG </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="ecg_min_patient_rec" readonly > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="ecg_max_patient_rec" readonly > </textarea>
+        </div>
+        
+        <label for="umiditate_min_patient_rec"> UMIDITATE </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="umiditate_min_patient_rec" readonly > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="umiditate_max_patient_rec" readonly > </textarea>
+        </div>
+</div>
+
+<div id="dinamic_table">
+
+    <table style="width: 45%;" id="table_parameters_sheet">
+        <caption style="font-size: 26px;">Valorile parametrilor</caption>
+        <tr>
+            <th>Puls</th>
+            <th>Temperatura</th>
+            <th>Umiditate</th>
+            <th>ECG</th>
+        </tr>
+
+</div>
 
 <script src="login.js"></script>
 <script src="add.js"></script>

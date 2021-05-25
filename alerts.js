@@ -1,5 +1,9 @@
 var cell_count=0;
 function show_alert_page(){
+  if(button==true){
+    button=false;
+    btn_update.remove();
+  }
   document.getElementById("alerts_div").style.display = "block";
   document.getElementById("user_doctor_div").style.display = "none";
   document.getElementById("doctor_add").style.display = "none";
