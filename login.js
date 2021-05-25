@@ -15,7 +15,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       document.getElementById("info_pacient").style.display = "none";
       document.getElementById("patient_details_sheet").style.display = "none";  
       document.getElementById("dinamic_table").style.display = "none";
-        
+      
       var user = firebase.auth().currentUser;
       
       if(user != null){
@@ -32,6 +32,7 @@ firebase.auth().onAuthStateChanged(function(user) {
               document.getElementById("menu-span-patient").style.display = "none"; 
               document.getElementById("recommandation").style.display = "none";
               document.getElementById("dinamic_table").style.display = "none";
+
               user_type="patient";  
             }
           });
@@ -45,6 +46,7 @@ firebase.auth().onAuthStateChanged(function(user) {
           document.getElementById("menu-span-patient").style.display = "none"; 
           document.getElementById("recommandation").style.display = "none";
           document.getElementById("dinamic_table").style.display = "none";
+
         }
       }
   
@@ -63,7 +65,6 @@ firebase.auth().onAuthStateChanged(function(user) {
       document.getElementById("menu-span-patient").style.display = "none";  
       document.getElementById("recommandation").style.display = "none";
       document.getElementById("dinamic_table").style.display = "none";
-  
     }
   });
   
