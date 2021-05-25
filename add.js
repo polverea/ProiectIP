@@ -84,7 +84,6 @@ function cancel_add(){
     document.getElementById("doctor_add").style.display = "none";
     document.getElementById("menu-span").style.display = "none";
     document.getElementById("info_pacient").style.display = "none";   
-    //document.getElementById("alerts_div").style.display = "none";
 }
 
 function add()

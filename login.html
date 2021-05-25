@@ -14,6 +14,7 @@
     <script src="form.js"></script>
     <script src="details.js"></script>
     <script src="alerts.js"></script>
+    <script src="sheet.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
@@ -66,7 +67,7 @@
 <div id="user_patient_div" class="loggedin-div">
     <h3 style="text-align: center;">Welcome to control panel!</h3>
     <p id="user_patient"></p>
-    <button>Vizualizare fișă</button>
+    <button onclick="view_sheet()">Vizualizare fișă</button>
     <button>Recomandările medicului</button>
     <button>Vizualizare valori</button>
     <button onclick="logout()">Logout</button>
@@ -228,10 +229,10 @@
     </select>
     <div id="alert_details_patient">
         <label for="name_patient_alerts"> NUME </label>
-        <textarea style="width: 30%;" id="name_patient_alerts" > </textarea>
+        <textarea style="width: 70%; height: 5%;" id="name_patient_alerts" > </textarea>
         
         <label for="surname_patient_alerts"> PRENUME </label>
-        <textarea style="width: 30%;" id="surname_patient_alerts" > </textarea>
+        <textarea style="width: 70%; height: 5%;" id="surname_patient_alerts" > </textarea>
 
         <label for="add_alert_text"> ALERTA </label>
         <textarea style="width: 70%; height:10%;" id="add_alert_text" > </textarea>
@@ -251,6 +252,64 @@
     </div>                        
 </div>
 
+<div id="patient_details_sheet">
+    <label for="username_patient"> USERNAME </label>
+        <textarea id="username_patient" > </textarea>
+        
+        <label for="name_patient"> NUME </label>
+        <textarea id="name_patient" > </textarea>
+        
+        <label for="surname_patient"> PRENUME </label>
+        <textarea id="surname_patient"  > </textarea>
+        
+        <label for="cnp_patient"> CNP </label>
+        <textarea id="cnp_patient" > </textarea>
+       
+        <label for="patient"> ADRESA </label>
+        <textarea id="adress_patient"> </textarea>
+        
+        <label for="phone_number_patient"> NUMĂR TELEFON </label>
+        <textarea id="phone_number_patient" > </textarea>
+        
+        <label for="profession_patient"> PROFESIE </label>
+        <textarea id="profession_patient" > </textarea>
+        
+        <label for="job_patient"> LOC DE MUNCĂ </label>
+        <textarea id="job_patient"> </textarea>
+        
+        <label for="medical_history_patient"> ISTORIC MEDICAL </label>
+        <textarea id="medical_history_patient" > </textarea>
+       
+        <label for="allergies_patient"> ALERGII </label>
+        <textarea id="allergies_patient" > </textarea>
+        
+        <label for="cardio_patient"> CONSULTAȚII CARDIOLOGICE </label>
+        <textarea id="cardio_patient" > </textarea>
+
+        <label for="puls_min_patient"> PULS </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="puls_min_patient" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="puls_max_patient" > </textarea>
+        </div>
+
+        <label for="temperatura_min_patient"> TEMPERATURA </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="temp_min_patient" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="temp_max_patient" > </textarea>
+        </div>
+
+        <label for="ecg_min_patient"> ECG </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="ecg_min_patient" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="ecg_max_patient" > </textarea>
+        </div>
+        
+        <label for="umiditate_min_patient"> UMIDITATE </label>
+        <div id="outer">
+            <textarea style="display: inline-block; width: 111px;" id="umiditate_min_patient" > </textarea>
+            <textarea style="display: inline-block; width: 111px;" id="umiditate_max_patient" > </textarea>
+        </div>
+</div>
 
 <script src="login.js"></script>
 <script src="add.js"></script>
