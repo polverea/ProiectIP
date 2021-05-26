@@ -27,6 +27,10 @@ const pacientiCollection = database.collection("pacienti");
 
 addButton.addEventListener("click",e => {
     e.preventDefault();
+    if(!(username.value.endsWith("yahoo.com") || username.value.endsWith("gmail.com"))){
+        window.alert("Username-ul trebuie sa fie o adresa de email valida! \n ex: ex@yahoo.com/ex@gmail.com");
+        return;
+    }
     pacientiCollection.doc(username.value).set(
         {
             nume: nume.value,
@@ -49,9 +53,8 @@ addButton.addEventListener("click",e => {
             umiditate_max: umiditateMax.value
 
         }).then(()=> {
-            console.log(pulsMin.value);
-            console.log(tempMin.value);
-            console.log(umiditateMax.value);
+            secondaryApp.auth().createUserWithEmailAndPassword(document.getElementById("username_patient_field").value, document.getElementById("password_patient_field").value);
+            window.alert("Pacientul cu email-ul: "+document.getElementById("username_patient_field").value+" a fost creat.");
             document.getElementById("username_patient_field").value="";
             document.getElementById("password_patient_field").value="";
             document.getElementById("name_patient_field").value="";
