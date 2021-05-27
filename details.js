@@ -54,8 +54,8 @@ function view_patient(){
         delete_btn.innerHTML='<img src="images/delete.png" alt="delete" width="25" height="25" class="center">';
 
         cell0.innerHTML = count+1;
-        cell1.innerHTML = user.id;
-        cell2.innerHTML = user.data().nume; 
+        cell1.innerHTML = user.data().nume;
+        cell2.innerHTML = user.data().prenume; 
         cell3.innerHTML = user.data().CNP; 
         cell4.appendChild(viewDetails_btn);
         cell5.appendChild(modify_btn);

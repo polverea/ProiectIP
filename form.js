@@ -11,4 +11,5 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  var secondaryApp = firebase.initializeApp(firebaseConfig, "Secondary");
   firebase.analytics();
